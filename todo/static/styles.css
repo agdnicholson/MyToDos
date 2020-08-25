@@ -25,3 +25,15 @@ body {
     padding-bottom: 0;
     white-space: nowrap;
 }
+
+@media (max-width: 991px) {
+    .navbar .collapse.show #signup-collapsed {
+        display:block;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar .collapse #signup-collapsed {
+        display:none;
+    }
+}
