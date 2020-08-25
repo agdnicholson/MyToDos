@@ -1,11 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Login</h1>
-<h2>{{ error }}</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
+<div class="my-auto col-md-6 offset-md-3 py-5">
+    <h1>Login</h1>
+    <h5 class="text-danger">{{ error }}</h5>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" minlength="6" maxlength="50" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" minlength="6" maxlength="50" class="form-control" required/>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+</div>
+<div class="my-auto col-md-8 offset-md-2 text-center">
+    <hr />
+    <h4>Do you not have an account yet? <a href="{% url 'signupuser' %}" class="link">Sign Up for free here</a></h4>
+</div>
 {% endblock %}

@@ -1,0 +1,27 @@
+html {
+    height:100%;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+#message {
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+#inner-message {
+    margin: 10px;
+}
+
+.navbar ul {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.navbar li {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    white-space: nowrap;
+}

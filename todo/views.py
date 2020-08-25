@@ -13,6 +13,8 @@ def home(request):
     return render(request, 'home.html')
 
 def signupuser(request):
+    if request.user.is_authenticated:
+        return redirect('currenttodos')
     if request.method == 'GET':
         return render(request, 'signupuser.html', {'form':UserCreationForm()})
     else:
@@ -30,6 +32,8 @@ def signupuser(request):
 
 
 def loginuser(request):
+    if request.user.is_authenticated:
+        return redirect('currenttodos')
     if request.method == 'GET':
         return render(request, 'loginuser.html', {'form':AuthenticationForm()})
     else:

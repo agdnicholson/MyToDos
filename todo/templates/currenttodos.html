@@ -1,26 +1,46 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="my-auto col-md-8 offset-md-2 text-left py-5">
 <h1>Current Todos</h1>
-
-<ul>
-    {% for todo in todos %}
-    <li>
-        <a href="{% url 'viewtodo' todo.id %}">
+    {% if todos.count == 0 %}
+        <h2 class="my-5">Looks like you don't have any todos! Nice job!</h2>
+        <div class="col text-center">
+            <a href="{% url 'createtodo' %}" class="btn btn-primary">Create a new todo</a>
+        </div>
+    {%else %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col" class="text-right">Date Created</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for todo in todos %}
         {% if todo.important %}
-        <strong>
+        <tr class="table-danger">
+            {% else %}
+        <tr>
             {% endif %}
-            {{ todo.title }}
-            {% if todo.important %}
-        </strong>
-        {% endif %}
-        {%if todo.memo %}
-         - {{ todo.memo }}
-        {% endif %}
-        </a>
-    </li>
-    {% endfor %}
-</ul>
+            <th scope="row">
+                <a href="{% url 'viewtodo' todo.id %}" class="text-dark">
+                    {% if todo.important %}
+                    <strong>
+                        {% endif %}
+                        {{ todo.title }}
+                        {% if todo.important %}
+                    </strong>
+                    {% endif %}
+                </a>
+            </th>
+            <td class="text-right">{{ todo.created|date:'M j Y H:i' }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
 
+</div>
 
 {% endblock %}

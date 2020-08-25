@@ -1,4 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Home</h1>
+<div class="my-auto col-md-8 offset-md-2 text-center py-5">
+    <h1>Simplify your tasks with My ToDos!</h1>
+    <p class="py-5">
+        Life can be hectic with many things todo. Sometimes it is good to bring structure to all the tasks
+        you have todo. So why not use My Todos? The online My ToDos App that is completely free!<br><br>
+        Make your own list of todo tasks, add memos and mark them as complete when you are finished.<br>
+        You can also mark a todo as important to make sure it is the first thing on your radar and clear that it gets the priority it deserves.
+        <br><br>Register for free today, what are you waiting for?!
+        <br><br>
+        <a href="{% url 'signupuser' %}" class="btn btn-primary">Start</a>
+    </p>
+</div>
+
 {% endblock %}
